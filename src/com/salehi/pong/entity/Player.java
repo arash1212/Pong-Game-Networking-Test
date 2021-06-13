@@ -24,6 +24,7 @@ public class Player implements GameObject {
     public Player(JFrame frame) {
         this.jFrame = frame;
         //
+        y=250;
         width = 10;
         height = 100;
         ya = 0;
@@ -49,9 +50,9 @@ public class Player implements GameObject {
 
 
     public void move() {
-        if (ya > 0 && y + ya < jFrame.getHeight() - (player.height + 38)) {
+        if (ya > 0 && y + ya < jFrame.getHeight() - (player.height + 45)) {
             y = y + (ya);
-        } else if (ya < 0 && y - ya > 0) {
+        } else if (ya < 0 && y - ya > 20) {
             y = y + (ya);
         }
         collision();

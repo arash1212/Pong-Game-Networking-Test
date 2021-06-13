@@ -9,7 +9,7 @@ import java.awt.*;
 public class Ball implements GameObject {
     private int x = 50, y, width, height;
     private int ya = 5, xa = 5;
-    private int speed = 6;
+    private int speed = 7;
     private JFrame frame;
     private Shape shape;
     private Rectangle collision;
@@ -81,7 +81,7 @@ public class Ball implements GameObject {
             mainPanel.setPlayer1Score(mainPanel.getPlayer1Score() + 1);
         }
         y = ((int) (y + Math.random())) + ya;
-        x = x + xa;
+        x = ((int) (x + Math.random())) + xa;
     }
 
     public void paint(Graphics graphics) {

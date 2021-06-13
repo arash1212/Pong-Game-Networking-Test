@@ -6,10 +6,13 @@ import com.salehi.pong.entity.Player;
 import com.salehi.pong.entity.Player2AI;
 import javafx.scene.input.KeyCode;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +28,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
     private int player1Score;
     private int player2Score;
     //
+    private BufferedImage backGroundImage;
 
     public int getPlayer2Score() {
         return player2Score;
@@ -66,11 +70,19 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
         gameObjects.add(player);
         gameObjects.add(player2AI);
         //
+        try{
+            backGroundImage= ImageIO.read(new File("out\\production\\Graphics_test\\com\\salehi\\pong\\Assets\\background2.jpg"));
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("error in finding background image");
+        }
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        g.drawImage(backGroundImage,0,0,this);
+        //
         Graphics2D graphics2D = (Graphics2D) g;
         this.setBackground(Color.BLACK);
         //Player
