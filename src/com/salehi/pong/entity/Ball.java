@@ -71,11 +71,14 @@ public class Ball implements GameObject {
         //
         if (x <= 0) {
             System.out.println("player 1 lost");
-            mainPanel.setPlayer1Score(mainPanel.getPlayer1Score() - 1);
-//            System.exit(0);
+            mainPanel.setPlayer2Score(mainPanel.getPlayer2Score() + 1);
+//          System.exit(0);
             xa = speed;
-        } else if (x > frame.getWidth() - 65) {
+        } else if (x > frame.getWidth() - 55) {
+            System.out.println(x);
+            System.out.println("player 2 lost");
             xa = -speed;
+            mainPanel.setPlayer1Score(mainPanel.getPlayer1Score() + 1);
         }
         y = ((int) (y + Math.random())) + ya;
         x = x + xa;

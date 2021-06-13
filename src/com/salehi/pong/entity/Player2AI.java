@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Player2AI implements GameObject {
 
-    private int x = 660, y = 0, width, height;
+    private int x = 650, y = 0, width, height;
     private int ya = 6;
     Rectangle player;
     Rectangle collision;
@@ -39,7 +39,7 @@ public class Player2AI implements GameObject {
         graphics2D.setColor(Color.WHITE);
         graphics2D.fill(player);
         //
-//        graphics2D.draw(collision);
+        graphics2D.draw(collision);
 
     }
 
@@ -52,9 +52,9 @@ public class Player2AI implements GameObject {
     public void move() {
         for (GameObject gameObject : gameObjects) {
             if (gameObject instanceof Ball) {
-                if (((Ball) gameObject).getY() > this.y) {
+                if (((Ball) gameObject).getY() - 40 > this.y) {
                     this.y = y + ya;
-                } else if (((Ball) gameObject).getY() < this.y) {
+                } else if (((Ball) gameObject).getY() - 40 < this.y) {
                     {
                         this.y = y - ya;
                     }
@@ -76,10 +76,10 @@ public class Player2AI implements GameObject {
     public void collision() {
         for (GameObject gameObject : gameObjects) {
             if (gameObject.getCollision() != this.collision && collision.intersects(gameObject.getCollision())) {
-//                System.out.println("hit");
+                System.out.println("hit");
             }
             if (collision.intersects(gameObject.getCollision()) && gameObject instanceof Ball) {
-                ((Ball) gameObject).setYa(-(((Ball) gameObject).getYa())).setXa(5);
+                ((Ball) gameObject).setYa(-(((Ball) gameObject).getYa())).setXa(-5);
             }
         }
     }

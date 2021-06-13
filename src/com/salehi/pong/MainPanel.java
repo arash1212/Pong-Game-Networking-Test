@@ -23,6 +23,17 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
     private List<GameObject> gameObjects = new ArrayList<>();
     //
     private int player1Score;
+    private int player2Score;
+    //
+
+    public int getPlayer2Score() {
+        return player2Score;
+    }
+
+    public MainPanel setPlayer2Score(int player2Score) {
+        this.player2Score = player2Score;
+        return this;
+    }
 
     public JFrame getFrame() {
         return frame;
@@ -67,7 +78,8 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
             gameObject.paint(graphics2D);
         }
         //
-        graphics2D.drawString(String.valueOf(player1Score), frame.getWidth()/2, 50);
+        graphics2D.drawString(String.valueOf(player1Score) + " - ", frame.getWidth() / 2, 50);
+        graphics2D.drawString(String.valueOf(player2Score), frame.getWidth() / 2 + 16, 50);
     }
 
     @Override
