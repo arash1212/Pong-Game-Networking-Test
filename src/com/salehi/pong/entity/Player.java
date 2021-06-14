@@ -73,7 +73,7 @@ public class Player implements GameObject {
 //                System.out.println("hit");
             }
             if (collision.intersects(gameObject.getCollision())&&gameObject instanceof Ball) {
-                ((Ball)gameObject).setYa(-(((Ball) gameObject).getYa())).setXa(5);
+                ((Ball)gameObject).setYa(-(((Ball) gameObject).getYa())).setXa(((Ball)gameObject).getSpeed());
             }
         }
     }

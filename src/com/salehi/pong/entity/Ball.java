@@ -15,6 +15,15 @@ public class Ball implements GameObject {
     private Rectangle collision;
     private MainPanel mainPanel;
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public Ball setSpeed(int speed) {
+        this.speed = speed;
+        return this;
+    }
+
     public int getX() {
         return x;
     }
